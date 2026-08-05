@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "description": "cc-connect LLM provider presets for install-cc-connect-pro.sh (cc-connect v1.4+)",
+  "providers": [
+    {
+      "id": "anthropic",
+      "display_name": "Anthropic 官方",
+      "base_url": "https://api.anthropic.com",
+      "default_model": "claude-sonnet-4-6",
+      "auth_style": "x-api-key",
+      "key_prefix": "sk-ant-",
+      "extra_headers": null
+    },
+    {
+      "id": "minimax",
+      "display_name": "MiniMax",
+      "base_url": "https://api.minimaxi.com/anthropic",
+      "default_model": "MiniMax-M3",
+      "auth_style": "bearer",
+      "key_prefix": "eyJ",
+      "extra_headers": null,
+      "provider_ref_slug": "minimax-cn",
+      "models": ["MiniMax-M3", "MiniMax-M3-highspeed", "MiniMax-M2.7", "MiniMax-M2.7-highspeed"]
+    },
+    {
+      "id": "deepseek",
+      "display_name": "DeepSeek",
+      "base_url": "https://api.deepseek.com/anthropic",
+      "default_model": "deepseek-v4-flash",
+      "auth_style": "bearer",
+      "key_prefix": "sk-",
+      "extra_headers": null,
+      "models": ["deepseek-v4-flash", "deepseek-v4-pro"],
+      "notes": "Anthropic 兼容端点。Claude 名称自动映射：claude-opus -> v4-pro，claude-haiku/sonnet -> v4-flash。"
+    },
+    {
+      "id": "glm",
+      "display_name": "智谱 GLM",
+      "base_url": "https://open.bigmodel.cn/api/anthropic",
+      "default_model": "glm-5.2",
+      "auth_style": "bearer",
+      "key_prefix": "",
+      "extra_headers": null,
+      "models": ["glm-5.2", "glm-5.2-coding", "glm-4-plus", "glm-4-flash", "glm-4-air"],
+      "notes": "Anthropic 兼容端点。默认模型已升级为 glm-5.2；代码场景可切 glm-5.2-coding。"
+    },
+    {
+      "id": "kimi",
+      "display_name": "月之暗面 Kimi (Kimi Code)",
+      "base_url": "https://api.kimi.com/coding/",
+      "default_model": "kimi-for-coding",
+      "auth_style": "bearer",
+      "key_prefix": "sk-kimi-",
+      "extra_headers": null,
+      "models": ["kimi-for-coding", "kimi-for-coding-highspeed", "k3", "k3-256k", "k3[1m]"],
+      "notes": "Kimi Code 专用端点，面向 Claude Code 等第三方工具优化。k3[1m] 表示 1M 上下文版本。"
+    },
+    {
+      "id": "openrouter",
+      "display_name": "OpenRouter (Claude 透传)",
+      "base_url": "https://openrouter.ai/api/v1",
+      "default_model": "anthropic/claude-sonnet-4-6",
+      "auth_style": "bearer",
+      "key_prefix": "sk-or-",
+      "extra_headers": {
+        "HTTP-Referer": "https://xlm666.top",
+        "X-Title": "cc-connect"
+      }
+    },
+    {
+      "id": "custom",
+      "display_name": "自定义 URL",
+      "base_url": null,
+      "default_model": "claude-sonnet-4-6",
+      "auth_style": "bearer",
+      "key_prefix": "",
+      "extra_headers": null,
+      "notes": "Requires CC_BASE_URL and CC_MODEL env vars (non-TTY) or interactive prompt"
+    }
+  ]
+}

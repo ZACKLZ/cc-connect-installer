@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cc-connect 一键安装 · inst.xlm666.top</title>
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --card: #ffffff;
+      --text: #1f2329;
+      --muted: #646a73;
+      --border: #e1e3e6;
+      --accent: #0066cc;
+      --accent-soft: #e6f1fc;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      background: #f2f3f5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.92em;
+    }
+    pre {
+      background: #0d1117;
+      color: #c9d1d9;
+      padding: 16px;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; padding: 0; color: inherit; }
+    .container { max-width: 880px; margin: 0 auto; padding: 32px 20px; }
+    header { text-align: center; margin-bottom: 40px; }
+    header h1 { font-size: 2.2rem; margin: 0 0 12px; letter-spacing: -0.5px; }
+    header p { color: var(--muted); font-size: 1.05rem; margin: 0; }
+    .badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .card h2 { margin: 0 0 16px; font-size: 1.25rem; }
+    .card h3 { margin: 20px 0 10px; font-size: 1rem; color: var(--muted); }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .feature {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .feature strong { display: block; margin-bottom: 6px; }
+    .feature span { color: var(--muted); font-size: 0.92rem; }
+    .file-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .file-item {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--accent-soft);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-weight: 500;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 600; background: #fafafa; }
+    tr:last-child td { border-bottom: none; }
+    .provider-tag {
+      display: inline-block;
+      background: #eef2ff;
+      color: #3451b2;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-weight: 500;
+    }
+    .copy-bar {
+      display: flex; align-items: center; gap: 10px;
+      margin-top: 8px;
+    }
+    .copy-btn, .reset-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .copy-btn:hover { background: #0052a3; }
+    .reset-btn {
+      background: var(--code-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .reset-btn:hover { background: #e4e6e9; }
+    .install-snippet {
+      width: 100%;
+      min-height: 120px;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      resize: vertical;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .install-snippet:focus {
+      border-color: var(--accent);
+      background: #fff;
+    }
+    footer { text-align: center; color: var(--muted); font-size: 0.88rem; margin-top: 40px; }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.7rem; }
+      table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">Pro v1.1.0 · cc-connect v1.4+</div>
+      <h1>cc-connect 一键安装脚本</h1>
+      <p>Claude Code + 飞书机器人，支持 6 家 LLM 服务商预设与自定义 URL；飞书默认 WebSocket 长连接，无需公网域名</p>
+    </header>
+
+    <div class="card">
+      <h2>🚀 一行安装（推荐 Kimi Code：代码/长上下文场景）</h2>
+      <p>非 TTY 服务器上直接复制粘贴执行，把 xxx 换成真实密钥：</p>
+      <ul style="color:var(--muted);font-size:0.9rem;margin:0 0 12px 20px;">
+        <li><code>CC_PROVIDER</code>: LLM 服务商，这里用 <code>kimi</code>；可选 <code>deepseek / glm / minimax / openrouter / anthropic / custom</code></li>
+        <li><code>CC_API_KEY</code>: 对应服务商的 API Key</li>
+        <li><code>FEISHU_APP_ID / FEISHU_APP_SECRET</code>: 飞书机器人凭证</li>
+        <li><code>-E</code> 保留环境变量；<code>sudo</code> 用于写 systemd 服务与 npm 全局包；<code>-fsSL</code> 静默下载并跟随跳转</li>
+      </ul>
+      <textarea id="install-snippet" class="install-snippet" spellcheck="false">export CC_PROVIDER=kimi
+export CC_API_KEY=sk-kimi-xxx
+export FEISHU_APP_ID=cli_xxx
+export FEISHU_APP_SECRET=xxx
+curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh | sudo -E bash</textarea>
+      <div class="copy-bar">
+        <button class="copy-btn" onclick="copyCode('install-snippet')">复制命令</button>
+        <button class="reset-btn" onclick="resetCode('install-snippet')">重置</button>
+        <span style="color:var(--muted);font-size:0.85rem;">支持 Ubuntu / Debian / RHEL / Arch / macOS / WSL2</span>
+      </div>
+      <p style="color:var(--muted);font-size:0.85rem;margin-top:10px;">
+        💡 原生 Windows 无法直接运行本 bash 脚本，建议通过 WSL2 安装；cc-connect 本体为 Node.js，也可在 Windows 上手动 `npm install -g cc-connect` 后自行配置。
+      </p>
+
+      <h3>交互模式</h3>
+      <pre><code>curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh -o /tmp/inst.sh
+bash /tmp/inst.sh</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>🌐 LLM 服务商预设</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Provider</th>
+            <th>默认模型</th>
+            <th>可选模型</th>
+            <th>Key 前缀</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="provider-tag">Kimi Code</span></td>
+            <td><code>kimi-for-coding</code></td>
+            <td>k3, k3-256k, kimi-for-coding-highspeed</td>
+            <td><code>sk-kimi-</code></td>
+          </tr>
+          <tr>
+            <td><span class="provider-tag">DeepSeek</span></td>
+            <td><code>deepseek-v4-flash</code></td>
+            <td>deepseek-v4-pro</td>
+            <td><code>sk-</code></td>
+          </tr>
+          <tr>
+            <td><span class="provider-tag">MiniMax</span></td>
+            <td><code>MiniMax-M3</code></td>
+            <td>M3-highspeed, M2.7, M2.7-highspeed</td>
+            <td><code>eyJ</code> (JWT)</td>
+          </tr>
+          <tr>
+            <td><span class="provider-tag">Anthropic</span></td>
+            <td><code>claude-sonnet-4-6</code></td>
+            <td>opus, haiku</td>
+            <td><code>sk-ant-</code></td>
+          </tr>
+          <tr>
+            <td><span class="provider-tag">智谱 GLM</span></td>
+            <td><code>glm-5.2</code></td>
+            <td>glm-5.2-coding, glm-4-plus, glm-4-flash, glm-4-air</td>
+            <td>任意</td>
+          </tr>
+          <tr>
+            <td><span class="provider-tag">OpenRouter</span></td>
+            <td><code>anthropic/claude-sonnet-4-6</code></td>
+            <td>anthropic/* 系列</td>
+            <td><code>sk-or-</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="color:var(--muted);font-size:0.9rem;margin-top:12px;">
+        安装后在聊天中发送 <code>/model list</code> 查看模型，<code>/model switch &lt;模型名&gt;</code> 切换。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>✨ Pro 版特性</h2>
+      <div class="grid-2">
+        <div class="feature">
+          <strong>🤖 多 LLM 预设</strong>
+          <span>6 家主流服务商 + 自定义 OpenAI/Anthropic 兼容端点，一键切换。</span>
+        </div>
+        <div class="feature">
+          <strong>⚡ 双模式安装</strong>
+          <span>环境变量一行命令安装，或交互式菜单输入，服务器/本地都方便。</span>
+        </div>
+        <div class="feature">
+          <strong>🔒 安全默认</strong>
+          <span>API Key 使用 ${VAR} 占位符，由 systemd 注入；支持 allow_from 白名单。</span>
+        </div>
+        <div class="feature">
+          <strong>🔄 模型切换</strong>
+          <span>生成 [[providers.models]]，聊天中随时 /model switch 切换。</span>
+        </div>
+        <div class="feature">
+          <strong>⏰ cron reuse 模式</strong>
+          <span>默认 [cron] session_mode = "reuse"，避免定时任务推送丢消息。</span>
+        </div>
+        <div class="feature">
+          <strong>🔌 飞书 WebSocket 长连接</strong>
+          <span>默认长连接接收事件，无需公网 IP / 域名 / SSL，本地或内网服务器也能用。</span>
+        </div>
+        <div class="feature">
+          <strong>🍎 跨平台</strong>
+          <span>Ubuntu/Debian/RHEL/Arch/macOS 全支持，自动检测系统并安装 Node.js 22；Windows 推荐 WSL2，也可手动 npm 安装。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📜 文件下载</h2>
+      <div class="file-list">
+        <a class="file-item" href="install-cc-connect-pro.sh">📥 install-cc-connect-pro.sh</a>
+        <a class="file-item" href="provider-presets.json">🗂️ provider-presets.json</a>
+        <a class="file-item" href="readme.html">📖 使用说明</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🛠️ 常用命令</h2>
+      <pre><code># 查看状态
+cc-connect daemon status
+
+# 实时日志
+cc-connect daemon logs -f
+
+# 列出 provider 与模型
+cc-connect provider list
+cc-connect model list
+
+# 飞书获取自己的 User ID
+# 在飞书给机器人发: /whoami
+
+# 卸载
+bash install-cc-connect-pro.sh --uninstall</code></pre>
+    </div>
+
+    <footer>
+      <p>
+        cc-connect 安装脚本 · 主托管 <a href="https://inst.xlm666.top">inst.xlm666.top</a> ·
+        <a href="https://github.com/chenhg5/cc-connect">cc-connect GitHub</a>
+      </p>
+      <p style="font-size:0.8rem;">SSL 自动续期 · 仅用于 Claude Code / cc-connect 安装分发</p>
+    </footer>
+  </div>
+
+  <script>
+    const defaultSnippets = {};
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.install-snippet').forEach(el => {
+        defaultSnippets[el.id] = el.value;
+      });
+    });
+
+    function copyCode(id) {
+      const el = document.getElementById(id);
+      const text = el.value || el.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = el.nextElementSibling.querySelector('.copy-btn');
+        const old = btn.innerText;
+        btn.innerText = '已复制';
+        setTimeout(() => btn.innerText = old, 1500);
+      });
+    }
+
+    function resetCode(id) {
+      const el = document.getElementById(id);
+      if (defaultSnippets[id] !== undefined) {
+        el.value = defaultSnippets[id];
+      }
+    }
+  </script>
+</body>
+</html>
