@@ -1,0 +1,36 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check bash syntax
+        run: bash -n install-cc-connect.sh
+
+      - name: Install shellcheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Run shellcheck
+        run: shellcheck --severity=warning install-cc-connect.sh || true
+
+      - name: Ensure no real secrets or domains
+        run: |
+          set +e
+          matches=$(grep -nE 'sk-[a-zA-Z0-9_-]{10,}|eyJ[a-zA-Z0-9_-]{10,}|cli_[a-zA-Z0-9]{10,}|YXy[a-zA-Z0-9_-]{10,}|xlm666' install-cc-connect.sh provider-presets.json index.html readme.html | grep -vE 'YOUR_|CHANGE_ME|xxx$|xxxxxxxxx|\.\.\.|example\.com')
+          set -e
+          if [ -n "$matches" ]; then
+            echo "$matches"
+            echo "Possible real secret/domain found. Use placeholders only."
+            exit 1
+          fi
+          echo "OK: no obvious real secrets or domains."

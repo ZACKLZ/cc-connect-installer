@@ -24,8 +24,8 @@ h2 { margin-top: 36px; }
 <p>⚠️ <strong>自用前请替换域名</strong>：下文中的 <code>example.com</code> 仅为占位符，请把它换成你自己的托管域名。</p>
 </blockquote>
 <blockquote>
-<p>🌐 <strong>主托管地址</strong>: <code>https://&lt;your-domain&gt;/install-cc-connect-pro.sh</code><br />
-(备用: <code>https://&lt;your-domain&gt;/install-cc-connect-pro.sh</code>)</p>
+<p>🌐 <strong>主托管地址</strong>: <code>https://&lt;your-domain&gt;/install-cc-connect.sh</code><br />
+(备用: <code>https://&lt;your-domain&gt;/install-cc-connect.sh</code>)</p>
 </blockquote>
 <h2 id="_1">📜 文件清单</h2>
 <table>
@@ -38,7 +38,7 @@ h2 { margin-top: 36px; }
 </thead>
 <tbody>
 <tr>
-<td><code>install-cc-connect-pro.sh</code></td>
+<td><code>install-cc-connect.sh</code></td>
 <td style="text-align: right;">36KB</td>
 <td><strong>Pro 版</strong> · Ubuntu/Debian/RHEL/Arch/macOS · 6 家 LLM 预设 · 一行复制粘贴</td>
 </tr>
@@ -120,7 +120,7 @@ export FEISHU_APP_SECRET=xxx
 # -fsSL: 静默下载，跟随 302 跳转，出错时显示错误
 # 管道后面的 bash 会读取环境变量并自动安装
 # 安装完成后，给飞书机器人发消息即可开始对话
-curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect.sh | sudo -E bash
 </code></pre>
 <pre><code class="language-bash"># ============================================
 # 示例 2: DeepSeek（国内性价比最高）
@@ -130,7 +130,7 @@ export CC_PROVIDER=deepseek
 export CC_API_KEY=sk-xxx
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect.sh | sudo -E bash
 </code></pre>
 <pre><code class="language-bash"># ============================================
 # 示例 3: MiniMax
@@ -140,7 +140,7 @@ export CC_PROVIDER=minimax
 export CC_API_KEY=eyJxxx
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect.sh | sudo -E bash
 </code></pre>
 <pre><code class="language-bash"># ============================================
 # 示例 4: OpenRouter
@@ -150,7 +150,7 @@ export CC_PROVIDER=openrouter
 export CC_API_KEY=sk-or-v1-xxx
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect.sh | sudo -E bash
 </code></pre>
 <pre><code class="language-bash"># ============================================
 # 示例 5: 智谱 GLM
@@ -161,7 +161,7 @@ export CC_PROVIDER=glm
 export CC_API_KEY=xxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxx
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect.sh | sudo -E bash
 </code></pre>
 <pre><code class="language-bash"># ============================================
 # 示例 6: Anthropic 官方
@@ -170,7 +170,7 @@ export CC_PROVIDER=anthropic
 export CC_API_KEY=sk-ant-api03-xxx
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect.sh | sudo -E bash
 </code></pre>
 <pre><code class="language-bash"># ============================================
 # 示例 7: 自定义 OpenAI/Anthropic 兼容端点
@@ -182,14 +182,14 @@ export CC_API_KEY=sk-xxx
 export CC_MODEL=claude-sonnet-4-6
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect.sh | sudo -E bash
 </code></pre>
 <h3 id="download-then-bash">交互模式 (download-then-bash)</h3>
 <p>如果你不想把密钥暴露在命令历史里，或者想逐项确认：</p>
 <pre><code class="language-bash"># 1. 先下载脚本到本地
 # -o /tmp/inst.sh 表示保存为 /tmp/inst.sh
 # 这一步不会执行任何安装操作，只是下载文件
-curl -fsSL https://example.com/install-cc-connect-pro.sh -o /tmp/inst.sh
+curl -fsSL https://example.com/install-cc-connect.sh -o /tmp/inst.sh
 
 # 2. 以交互方式运行
 # 脚本会一步步提示你选择 LLM 服务商、输入 API Key、飞书凭据、管理员等
@@ -200,12 +200,12 @@ bash /tmp/inst.sh
 # 脚本会打印：要安装的 npm 包、要写入的 config.toml 预览、systemd unit 预览
 # 不会真正修改系统
 export CC_PROVIDER=kimi CC_API_KEY=test FEISHU_APP_ID=cli_x FEISHU_APP_SECRET=sec_x
-bash install-cc-connect-pro.sh --dry-run
+bash install-cc-connect.sh --dry-run
 </code></pre>
 <h3 id="_5">卸载</h3>
-<pre><code class="language-bash">bash install-cc-connect-pro.sh --uninstall
+<pre><code class="language-bash">bash install-cc-connect.sh --uninstall
 # 或等价写法:
-CC_UNINSTALL=1 bash install-cc-connect-pro.sh
+CC_UNINSTALL=1 bash install-cc-connect.sh
 </code></pre>
 <h2 id="cli">🛠️ 飞书 CLI 安装（可选，高级调试）</h2>
 <p>安装脚本本身不需要飞书 CLI，但如果你需要调试飞书开放平台权限、文档、审批等能力，可以单独安装：</p>
