@@ -20,6 +20,7 @@
 #    5. 在「版本管理与发布」创建版本并申请发布
 #
 #  使用 (env 模式, 一行复制粘贴):
+#    # 注意: 请把下文中的 example.com 替换为你自己的脚本托管域名。
 #    # CC_PROVIDER:  LLM 服务商, 可选 anthropic / minimax / deepseek / glm / kimi / openrouter / custom
 #    # CC_API_KEY:   对应服务商的 API Key
 #    # FEISHU_APP_ID / FEISHU_APP_SECRET: 飞书机器人凭证
@@ -28,17 +29,17 @@
 #    export FEISHU_APP_ID=cli_xxx
 #    export FEISHU_APP_SECRET=xxx
 #    # -E 保留 export 的环境变量; sudo 用于写 systemd 与 npm 全局包
-#    curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh | sudo -E bash
+#    curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
 #
 #  使用 (交互模式, 适合不想把密钥留在命令历史的场景):
-#    curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh -o /tmp/inst.sh
+#    curl -fsSL https://example.com/install-cc-connect-pro.sh -o /tmp/inst.sh
 #    bash /tmp/inst.sh
 #
 #  调试:
 #    CC_PROVIDER=kimi CC_API_KEY=test FEISHU_APP_ID=cli_x FEISHU_APP_SECRET=sec_x \
 #      bash install-cc-connect-pro.sh --dry-run
 #
-#  来源: https://inst.xlm666.top
+#  来源占位符: https://example.com (请替换为你的托管域名)
 # ============================================================================
 set -euo pipefail
 
@@ -60,7 +61,8 @@ step()  { echo -e "  ${BLUE}▸${NC} $*"; }
 
 # ----- 版本 / 元信息 -------------------------------------------------------
 SCRIPT_VERSION="1.1.0"
-SCRIPT_URL_DEFAULT="https://inst.xlm666.top/install-cc-connect-pro.sh"
+# 占位符：请把它替换为你实际托管 install-cc-connect-pro.sh 的域名
+SCRIPT_URL_DEFAULT="https://example.com/install-cc-connect-pro.sh"
 
 # ----- 全局状态 (在 main() 里被赋值) --------------------------------------
 OS_ID="" OS_VERSION="" OS_FAMILY="" PKG_INSTALL=""
@@ -120,8 +122,9 @@ load_provider_presets() {
   )
 
   # 仅 OpenRouter 需要 HTTP-Referer + X-Title (leaderboard 归属, 非必须但建议)
+  # 注意: 请把 example.com 替换为你自己的域名
   declare -gA PROV_NEEDS_EXTRA_HEADER_REF=(
-    ["openrouter"]="HTTP-Referer: https://inst.xlm666.top
+    ["openrouter"]="HTTP-Referer: https://example.com
 X-Title: cc-connect"
   )
 
@@ -868,7 +871,7 @@ ${YELLOW}下一步: 打开飞书, 找到刚创建的机器人, 发送 ${BOLD}/wh
 
   升级:  sudo npm update -g cc-connect @anthropic-ai/claude-code
   卸载:  bash $0 --uninstall
-  文档:  https://inst.xlm666.top
+  文档占位符: https://example.com (请替换为你的托管域名)
 EOF
 }
 
@@ -943,7 +946,7 @@ Options:
   export CC_PROVIDER=kimi CC_API_KEY=sk-kimi-xxx FEISHU_APP_ID=cli_xxx FEISHU_APP_SECRET=xxx
   curl -fsSL $SCRIPT_URL_DEFAULT | sudo -E bash
 
-来源: https://inst.xlm666.top
+来源占位符: https://example.com (请替换为你的托管域名)
 EOF
         exit 0
         ;;

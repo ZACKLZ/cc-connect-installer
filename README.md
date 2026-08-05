@@ -2,8 +2,10 @@
 
 两个版本的安装脚本，并行维护。
 
-> 🌐 **主托管地址**: https://inst.xlm666.top  
-> (备用: https://xlm666.top/install-cc-connect-pro.sh)
+> ⚠️ **自用前请替换域名**：下文中的 `example.com` 仅为占位符，请把它换成你自己的托管域名。
+
+> 🌐 **主托管地址**: `https://<your-domain>/install-cc-connect-pro.sh`  
+> (备用: `https://<your-domain>/install-cc-connect-pro.sh`)
 
 ## 📜 文件清单
 
@@ -11,7 +13,7 @@
 |---|---:|---|
 | `install-cc-connect-pro.sh` | 36KB | **Pro 版** · Ubuntu/Debian/RHEL/Arch/macOS · 6 家 LLM 预设 · 一行复制粘贴 |
 | `provider-presets.json` | 2.6KB | Provider 元数据与模型列表 |
-| `index.html` | — | inst.xlm666.top 主页 |
+| `index.html` | — | example.com 主页 |
 | `readme.html` | — | 本说明文档的 HTML 版本 |
 
 ## 🚀 Pro 版快速使用
@@ -80,7 +82,7 @@ export FEISHU_APP_SECRET=xxx
 # -fsSL: 静默下载，跟随 302 跳转，出错时显示错误
 # 管道后面的 bash 会读取环境变量并自动安装
 # 安装完成后，给飞书机器人发消息即可开始对话
-curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
 ```
 
 ```bash
@@ -92,7 +94,7 @@ export CC_PROVIDER=deepseek
 export CC_API_KEY=sk-xxx
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
 ```
 
 ```bash
@@ -104,7 +106,7 @@ export CC_PROVIDER=minimax
 export CC_API_KEY=eyJxxx
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
 ```
 
 ```bash
@@ -116,7 +118,7 @@ export CC_PROVIDER=openrouter
 export CC_API_KEY=sk-or-v1-xxx
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
 ```
 
 ```bash
@@ -129,7 +131,7 @@ export CC_PROVIDER=glm
 export CC_API_KEY=xxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxx
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
 ```
 
 ```bash
@@ -140,7 +142,7 @@ export CC_PROVIDER=anthropic
 export CC_API_KEY=sk-ant-api03-xxx
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
 ```
 
 ```bash
@@ -154,7 +156,7 @@ export CC_API_KEY=sk-xxx
 export CC_MODEL=claude-sonnet-4-6
 export FEISHU_APP_ID=cli_xxx
 export FEISHU_APP_SECRET=xxx
-curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh | sudo -E bash
+curl -fsSL https://example.com/install-cc-connect-pro.sh | sudo -E bash
 ```
 
 ### 交互模式 (download-then-bash)
@@ -165,7 +167,7 @@ curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh | sudo -E bash
 # 1. 先下载脚本到本地
 # -o /tmp/inst.sh 表示保存为 /tmp/inst.sh
 # 这一步不会执行任何安装操作，只是下载文件
-curl -fsSL https://inst.xlm666.top/install-cc-connect-pro.sh -o /tmp/inst.sh
+curl -fsSL https://example.com/install-cc-connect-pro.sh -o /tmp/inst.sh
 
 # 2. 以交互方式运行
 # 脚本会一步步提示你选择 LLM 服务商、输入 API Key、飞书凭据、管理员等
@@ -266,4 +268,4 @@ Pro 版 v1.1.0 生成的 `config.toml` 已默认包含：
 - Kimi Code for Claude Code: https://www.kimi.com/code/docs/third-party-tools/claude-code.html
 - 飞书开放平台: https://open.feishu.cn/app
 - 飞书 CLI: https://github.com/larksuite/cli
-- 源站: https://inst.xlm666.top
+- 源站: https://example.com

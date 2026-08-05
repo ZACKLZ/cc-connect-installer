@@ -63,9 +63,10 @@
       "auth_style": "bearer",
       "key_prefix": "sk-or-",
       "extra_headers": {
-        "HTTP-Referer": "https://xlm666.top",
+        "HTTP-Referer": "https://example.com",
         "X-Title": "cc-connect"
-      }
+      },
+      "notes": "HTTP-Referer 中的 example.com 请替换为你自己的域名；OpenRouter 用这两个头做 leaderboard 归属，非必须但建议填写。"
     },
     {
       "id": "custom",
