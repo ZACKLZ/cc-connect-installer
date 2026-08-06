@@ -1,4 +1,4 @@
-# cc-connect 一键安装脚本 · GitHub 管理
+# cc-connect-installer
 
 本仓库在 GitHub 上直接托管 **cc-connect 一键安装脚本**，用户无需访问额外的分发站点，直接从 GitHub raw 地址下载执行即可。
 
