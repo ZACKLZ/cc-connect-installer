@@ -50,15 +50,6 @@ bash /tmp/inst.sh
 | `openrouter` | OpenRouter | `https://openrouter.ai/api/v1` | `anthropic/claude-sonnet-4-6` |
 | `custom` | 自定义 URL | 必填 `CC_BASE_URL` | `claude-sonnet-4-6` |
 
-## 自定义
-
-如需 fork 后自己维护：
-
-1. Fork 本仓库。
-2. 修改 `install-cc-connect.sh` 中的 `SCRIPT_URL_DEFAULT` 为你自己的 raw 地址。
-3. 修改 `index.html` / `readme.html` 中的下载链接。
-4. 提交即可。
-
 ## 安全
 
 - 仓库中不放任何真实 API Key、App Secret、Token。

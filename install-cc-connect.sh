@@ -20,7 +20,7 @@
 #    5. 在「版本管理与发布」创建版本并申请发布
 #
 #  使用 (env 模式, 一行复制粘贴):
-#    # 注意: 默认使用 GitHub raw 地址；fork 后请替换为你自己的 raw 地址。
+#    # 注意: 默认使用本仓库的 GitHub raw 地址。
 #    # CC_PROVIDER:  LLM 服务商, 可选 anthropic / minimax / deepseek / glm / kimi / openrouter / custom
 #    # CC_API_KEY:   对应服务商的 API Key
 #    # FEISHU_APP_ID / FEISHU_APP_SECRET: 飞书机器人凭证
@@ -61,7 +61,7 @@ step()  { echo -e "  ${BLUE}▸${NC} $*"; }
 
 # ----- 版本 / 元信息 -------------------------------------------------------
 SCRIPT_VERSION="1.1.0"
-# 占位符：请把它替换为你实际托管 install-cc-connect.sh 的域名
+# 默认脚本来源地址（指向本仓库 GitHub raw）
 SCRIPT_URL_DEFAULT="https://raw.githubusercontent.com/ZACKLZ/cc-connect-installer/main/install-cc-connect.sh"
 
 # ----- 全局状态 (在 main() 里被赋值) --------------------------------------
