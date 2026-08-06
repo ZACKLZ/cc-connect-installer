@@ -1,6 +1,6 @@
 # cc-connect-installer
 
-从 GitHub raw 直接下载并运行 cc-connect 一键安装脚本。
+一键安装 cc-connect + Claude Code。
 
 ## 快速使用
 
