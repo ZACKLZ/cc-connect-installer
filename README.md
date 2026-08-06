@@ -16,7 +16,7 @@ curl -fsSL https://raw.githubusercontent.com/ZACKLZ/cc-connect-installer/main/in
 
 | 文件 | 说明 |
 |---|---|
-| `install-cc-connect.sh` | **Pro 版安装脚本**，支持 6 家 LLM 服务商预设 + 自定义 URL |
+| `install-cc-connect.sh` | 一键安装脚本，支持 6 家 LLM 服务商预设 + 自定义 URL |
 | `provider-presets.json` | Provider 元数据与模型列表 |
 | `index.html` | 本地预览用主页 |
 | `readme.html` | 本地预览用 HTML 说明 |

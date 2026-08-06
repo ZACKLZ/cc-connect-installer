@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================================
-#  Claude Code + cc-connect 一键安装脚本 (Pro 版)
+#  Claude Code + cc-connect 一键安装脚本
 #  --------------------------------------------
 #  支持 6 家 LLM 服务商预设 + 自定义 URL:
 #    1. Anthropic 官方      2. MiniMax (MiniMax M3)
@@ -998,7 +998,7 @@ main() {
 
   echo
   echo -e "${BOLD}${GREEN}============================================================${NC}"
-  echo -e "${BOLD}${GREEN}  Claude Code + cc-connect 一键安装 (Pro v${SCRIPT_VERSION})${NC}"
+  echo -e "${BOLD}${GREEN}  Claude Code + cc-connect 一键安装 (v${SCRIPT_VERSION})${NC}"
   echo -e "${BOLD}${GREEN}  支持 6 家 LLM 预设 + 自定义 URL + 飞书平台 (cc-connect v1.4+)${NC}"
   echo -e "${BOLD}${GREEN}============================================================${NC}"
   echo

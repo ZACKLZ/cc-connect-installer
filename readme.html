@@ -39,7 +39,7 @@ h2 { margin-top: 36px; }
 <tr>
 <td><code>install-cc-connect.sh</code></td>
 <td style="text-align: right;">36KB</td>
-<td><strong>Pro 版</strong> · Ubuntu/Debian/RHEL/Arch/macOS · 6 家 LLM 预设 · 一行复制粘贴</td>
+<td>一键安装脚本 · Ubuntu/Debian/RHEL/Arch/macOS · 6 家 LLM 预设 · 一行复制粘贴</td>
 </tr>
 <tr>
 <td><code>provider-presets.json</code></td>
@@ -58,7 +58,7 @@ h2 { margin-top: 36px; }
 </tr>
 </tbody>
 </table>
-<h2 id="pro">🚀 Pro 版快速使用</h2>
+<h2 id="pro">🚀 快速使用</h2>
 <h3 id="_2">准备工作：创建飞书机器人</h3>
 <p>安装脚本只需要 2 个飞书参数：<code>FEISHU_APP_ID</code> 和 <code>FEISHU_APP_SECRET</code>。飞书现在已经支持<strong>一键创建智能体</strong>，比原来的手动建应用简单很多。</p>
 <h4 id="_3">方式一：一键创建智能体（推荐，最简单）</h4>
@@ -124,7 +124,7 @@ curl -fsSL https://raw.githubusercontent.com/ZACKLZ/cc-connect-installer/main/in
 <pre><code class="language-bash"># ============================================
 # 示例 2: DeepSeek（国内性价比最高）
 # ============================================
-# 模型默认使用 deepseek-v4-flash；如需 Pro 版可切换 deepseek-v4-pro
+# 模型默认使用 deepseek-v4-flash；如需更强的模型可切换 deepseek-v4-pro
 export CC_PROVIDER=deepseek
 export CC_API_KEY=sk-xxx
 export FEISHU_APP_ID=cli_xxx
@@ -315,7 +315,7 @@ lark app list
 <li>安装后可用 <code>/model switch k3</code> 或 <code>/model switch kimi-for-coding-highspeed</code> 切换模型。</li>
 </ul>
 <h2 id="cc-connect-v14">⚙️ 生成配置新增项 (cc-connect v1.4+)</h2>
-<p>Pro 版 v1.1.0 生成的 <code>config.toml</code> 已默认包含：</p>
+<p>v1.1.0 生成的 <code>config.toml</code> 已默认包含：</p>
 <ul>
 <li><code>[display]</code> 显示模式设为 <code>compact</code>, 关闭 <code>thinking_messages</code> (减少 IM 噪音)</li>
 <li><code>[stream_preview]</code> 流式预览启用, 更新间隔 1500ms</li>
@@ -328,7 +328,7 @@ lark app list
 <ul>
 <li><strong>2026-08-05</strong> v1.1.0: 同步 cc-connect v1.4+ 新配置; 更新 DeepSeek 默认模型为 <code>deepseek-v4-flash</code> 并暴露 v4-pro; 更新 Kimi 端点为 <code>https://api.kimi.com/coding/</code> 并暴露 kimi-for-coding / k3 系列; 智谱 GLM 默认模型升级为 <code>glm-5.2</code>，新增 <code>glm-5.2-coding</code>; 生成配置默认加入 <code>[display]</code>, <code>[stream_preview]</code>, <code>[cron] session_mode = "reuse"</code>, <code>[[providers.models]]</code>; 补充飞书机器人创建流程与飞书 CLI 安装说明; 优化 env 模式示例注释; 修复 README.md 404 问题</li>
 <li><strong>2026-06-23</strong> v1.0.1: secrets 改用 <code>${VAR}</code> 占位符 → <code>daemon install</code> 捕获到 systemd <code>Environment=</code>; 新增 <code>CC_ALLOW_FROM</code> 强白名单; 修正 <code>admin_from</code> 为字符串格式 (官方文档要求)</li>
-<li><strong>2026-06-23</strong> v1.0.0: Pro 版首版发布 (6 provider 预设 + 双模式 + macOS)</li>
+<li><strong>2026-06-23</strong> v1.0.0: 首版发布 (6 provider 预设 + 双模式 + macOS)</li>
 </ul>
 <h2 id="_7">🔗 引用</h2>
 <ul>
